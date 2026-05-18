@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workforce Displacement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="red-glow one"></div>
+<div class="red-glow two"></div>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">AI</div>
+            <div>
+                <h2>Workforce</h2>
+                <p>Displacement AI</p>
+            </div>
+        </div>
+
+        <div class="menu active">Dashboard</div>
+        <div class="menu">Prediction</div>
+        <div class="menu">Analytics</div>
+        <div class="menu">Model Report</div>
+
+        <div class="model-card">
+            <span>MODEL STATUS</span>
+            <h3>Linear Regression</h3>
+            <p>R² Score</p>
+            <strong>77.4%</strong>
+            <p>MAE</p>
+            <strong>0.015</strong>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <nav class="topbar">
+            <p>UTS Praktikum Kecerdasan Buatan</p>
+            <div class="live">● SYSTEM ONLINE</div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <div class="chip">BLACK RED AI PREDICTION SYSTEM</div>
+                <h1>AI Workforce Displacement Predictor</h1>
+                <p>
+                    Sistem prediksi berbasis Machine Learning untuk menganalisis potensi
+                    penggantian tenaga kerja akibat kecerdasan buatan dan otomatisasi industri.
+                </p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="circle">
+                    <span>AI</span>
+                </div>
+                <div class="pulse"></div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span>DATASET</span>
+                <h2>20.800</h2>
+                <p>Global records</p>
+            </div>
+
+            <div class="stat-card">
+                <span>PERIOD</span>
+                <h2>2020–2026</h2>
+                <p>Quarterly data</p>
+            </div>
+
+            <div class="stat-card">
+                <span>OUTPUT</span>
+                <h2>%</h2>
+                <p>Workforce displaced</p>
+            </div>
+        </section>
+
+        <section class="prediction-panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Prediction Console</h2>
+                    <p>Masukkan parameter untuk menghasilkan estimasi workforce displacement.</p>
+                </div>
+                <span class="secure">SECURE ML ENGINE</span>
+            </div>
+
+            <form method="POST" class="form-grid">
+
+                <div class="input-group">
+                    <label>AI Adoption Index</label>
+                    <input type="number" step="0.001" name="ai_adoption_index" placeholder="0.830" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Automation Risk Score</label>
+                    <input type="number" step="0.001" name="automation_risk" placeholder="0.382" required>
+                </div>
+
+                <div class="input-group">
+                    <label>GDP Per Capita USD</label>
+                    <input type="number" step="1" name="gdp" placeholder="63514" required>
+                </div>
+
+                <div class="input-group">
+                    <label>AI Tool Adoption</label>
+                    <input type="number" step="0.001" name="ai_tool" placeholder="0.280" required>
+                </div>
+
+                <div class="input-group full">
+                    <label>Government AI Policy Score</label>
+                    <input type="number" step="0.1" name="policy" placeholder="6.4" required>
+                </div>
+
+                <button type="submit">
+                    <span>Generate Prediction</span>
+                </button>
+            </form>
+
+            {% if prediction %}
+            <div class="result">
+                <div>
+                    <p>PREDICTED DISPLACEMENT</p>
+                    <h1>{{ "%.2f"|format(prediction * 100) }}%</h1>
+                    <span>Estimasi persentase tenaga kerja yang terdampak oleh AI.</span>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
